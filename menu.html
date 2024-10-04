@@ -50,15 +50,17 @@
             <div class="conteudo-pesquisa">
               <input id="barra-pesquisa" onkeyup="digitar_opcao()" type="text" placeholder="Pesquisar..." autocomplete="off">
               <div id="opcoes" class="ativar-barra">
-                <div class="opcoes-barra">Pizzas</div>
-                <div class="opcoes-barra">Pizzas doces</div>
-                <div class="opcoes-barra">Bebidas</div>
-                <div class="opcoes-barra">Pizzas</div>
-                <div class="opcoes-barra">Pizzas doces</div>
-                <div class="opcoes-barra">Bebidas</div>
-                <div class="opcoes-barra">Pizzas</div>
-                <div class="opcoes-barra">Pizzas doces</div>
-                <div class="opcoes-barra">Bebidas</div>
+                <div class="scroll-pesquisa">
+                  <p class="opcoes-barra">Pizza</p>
+                  <p class="opcoes-barra">Pizzas doces</p>
+                  <p class="opcoes-barra">Bebidas</p>
+                  <p class="opcoes-barra">Pizzas</p>
+                  <p class="opcoes-barra">Pizzas doces</p>
+                  <p class="opcoes-barra">Bebidas</p>
+                  <p class="opcoes-barra">Pizzas</p>
+                  <p class="opcoes-barra">Pizzas doces</p>
+                  <p class="opcoes-barra">Bebidas</p>
+                </div>
               </div>
             </div>
           </div>
@@ -121,6 +123,43 @@
     </div>
   </section>
 
-    <script src="scr-menu/javascript/script.js"></script>
+  <section id="menu">
+    <h2 class="section-titulo">Cardápio</h2>
+    <div id="cardapio"></div>
+  </section>
+
+  <footer>
+    <img src="Imagens/footer/wave.svg" alt="">
+
+    <div id="footer_items">
+      <span id="copyright">
+        <a class="color-padrao tagNome" href="https://github.com/VanessaHenker" target="external"> &copy 2024 Vanessa Silva</a>
+      </span>
+
+        <div class="midia-social-buttons">
+          <a href="">
+              <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+          <a href="">
+              <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+    </div>
+  </footer>
+ 
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+  <script src="scr-menu/javascript/script.js"></script>
+
 </body>
 </html>
+

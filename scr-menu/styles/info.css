@@ -1,6 +1,8 @@
 .conteudo-info{
   text-align: center;
   position: relative;
+  background-color: #FAEBD7;
+  z-index: 2;
 }
 
 .imagem-logo{
@@ -123,6 +125,7 @@
 
 .conteudo-button-info::-webkit-scrollbar-thumb {
   background-color: #888; 
+  border-radius: 10px;
 }
 
 .conteudo-button-info::-webkit-scrollbar-thumb:hover {
