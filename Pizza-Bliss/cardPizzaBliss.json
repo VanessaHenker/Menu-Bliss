@@ -1,7 +1,7 @@
 {
   "categorias": [
     {
-      "nome": "Nossas Pizzas Salgadas",
+      "nome": "Pizzas Salgadas",
       "itens": [
         { 
           "nome": "Calabresa",
@@ -25,8 +25,29 @@
           "avaliacoes": "(500+)"
         },
         {
+          "nome": "Frango",
+          "imagem": "Pizza-Bliss/pizzas/pizzaFrango.png",
+          "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "preco": "R$ 00,00",
+          "avaliacoes": "(500+)"
+        },
+        {
+          "nome": "Queijo",
+          "imagem": "Pizza-Bliss/pizzas/pizza_queijo.png",
+          "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "preco": "R$ 00,00",
+          "avaliacoes": "(500+)"
+        },
+        {
           "nome": "Pepperoni",
           "imagem": "Pizza-Bliss/pizzas/pizza_peperoni.png",
+          "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "preco": "R$ 00,00",
+          "avaliacoes": "(500+)"
+        },
+        {
+          "nome": "Marguerita",
+          "imagem": "Pizza-Bliss/pizzas/pizzaMarguerita.png",
           "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
           "preco": "R$ 00,00",
           "avaliacoes": "(500+)"
@@ -34,10 +55,43 @@
       ]
     },
     {
-      "nome": "Nossas Pizzas Doces",
+      "nome": "Pizzas Veganas",
+      "itens": [
+        {
+          "nome": "Abobrinha",
+          "imagem": "Pizza-Bliss/pizzas/pizzaAbobrinha.png",
+          "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "preco": "R$ 00,00",
+          "avaliacoes": "(500+)"
+        },
+        {
+          "nome": "Brócolis",
+          "imagem": "Pizza-Bliss/pizzas/pizzaBrocolis.png",
+          "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "preco": "R$ 00,00",
+          "avaliacoes": "(500+)"
+        },
+        {
+          "nome": "Rúcula",
+          "imagem": "Pizza-Bliss/pizzas/pizzaRucula.png",
+          "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "preco": "R$ 00,00",
+          "avaliacoes": "(500+)"
+        },
+        {
+          "nome": "Palmito",
+          "imagem": "Pizza-Bliss/pizzas/pizzaPalmito.png",
+          "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "preco": "R$ 00,00",
+          "avaliacoes": "(500+)"
+        }
+      ]
+    },
+    {
+      "nome": "Pizzas Doces",
       "itens": [
         { 
-          "nome": "Chocolate",
+          "nome": "Brigadeiro",
           "imagem": "Pizza-Bliss/pizzas/pizza-chocolate.jpeg",
           "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
           "preco": "R$ 00,00",
@@ -49,11 +103,18 @@
           "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
           "preco": "R$ 00,00",
           "avaliacoes": "(200+)"
+        },
+        {
+          "nome": "Brigadeiro com morango",
+          "imagem": "Pizza-Bliss/pizzas/pizzaMorango.png",
+          "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+          "preco": "R$ 00,00",
+          "avaliacoes": "(200+)"
         }
       ]
     },
     {
-      "nome": "Nossos refrigerantes",
+      "nome": "Refrigerantes",
       "itens": [
         { 
           "nome": "Coca-Cola",

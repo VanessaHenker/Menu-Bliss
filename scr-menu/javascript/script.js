@@ -18,54 +18,89 @@ $(document).ready(function () {
   });
 });
 
-//Button pesquisa
+// Barra de pesquisa
 let boxBuscar = document.querySelector('.conteudo-button-pesq');
-
 let lupa = document.querySelector('.btn_mobile_pesq');
-
 let btnFechar = document.querySelector('.button_fechar');
+let options = document.getElementById('opcoes');
+let searchBar = document.getElementById('barra-pesquisa');
 
-//Abre a barra de pesquisa
+// Inicializa a barra de pesquisa e as opções fechadas
+boxBuscar.classList.remove('ativar'); // Garante que a barra de pesquisa esteja fechada
+options.classList.add('ativar-barra'); // Garante que as opções estejam fechadas
+
+// Abre a barra de pesquisa
 lupa.addEventListener('click', () => {
-  boxBuscar.classList.add('ativar');
+  boxBuscar.classList.add('ativar'); // Mostra a barra de busca
+  options.classList.remove('ativar-barra'); // Mostra as opções quando a barra de busca é aberta
 });
 
-//Remove a barra de pesquisa
+// Remove a barra de pesquisa
 btnFechar.addEventListener('click', () => {
-  boxBuscar.classList.remove('ativar');
-})
+  boxBuscar.classList.remove('ativar'); // Fecha a barra de busca
+  options.classList.add('ativar-barra'); // Fecha as opções
+});
 
-//Button pesquisa opções
-const searchBar = document.getElementById('barra-pesquisa');
-const options = document.getElementById('opcoes');
-const button_close = document.getElementById('button_fechar');
+// Função para carregar o arquivo JSON dinamicamente
+function carregarCategorias() {
+  fetch('menu.json') // Atualize com o caminho correto
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erro ao carregar o arquivo JSON');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Dados carregados do JSON:', data);
+      const scrollPesquisa = document.querySelector('.scroll-pesquisa');
+      scrollPesquisa.innerHTML = ''; // Limpa qualquer conteúdo anterior
 
-//Abre as opções
+      // Carregar categorias dependendo do tipo de menu
+      const menuItems = data.usarMenuPizza ? data.menuItemsPizza : data.menuItemsCake;
+      menuItems.forEach(item => {
+        fetch(item.menu) // Carregar o menu correspondente
+          .then(response => response.json())
+          .then(menuData => {
+            menuData.categorias.forEach(categoria => {
+              const categoriaElemento = document.createElement('p');
+              categoriaElemento.className = 'opcoes-barra';
+              categoriaElemento.textContent = categoria.nome;
+              scrollPesquisa.appendChild(categoriaElemento);
+
+              // Comportamento de clique para cada categoria
+              categoriaElemento.addEventListener('click', () => {
+                searchBar.value = categoria.nome; // Define o valor do input como o nome da categoria
+                options.classList.add('ativar-barra'); // Fecha as opções após a seleção
+              });
+            });
+          })
+          .catch(error => console.error('Erro ao carregar o menu:', error));
+      });
+
+      // As opções de pesquisa permanecem fechadas ao carregar
+      options.classList.add('ativar-barra');
+    })
+    .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
+}
+
+// Chama a função para carregar as categorias
+carregarCategorias();
+
+// Abre as opções de pesquisa ao clicar no campo de pesquisa
 searchBar.addEventListener('click', () => {
-  options.classList.remove('ativar-barra');
+  options.classList.remove('ativar-barra'); // Mostra as opções
 });
 
-//Remove as opções clicando no X
-button_close.addEventListener('click', () => {
-  options.classList.add('ativar-barra');
-});
-
-//Adiciona comportamento de clique nas opções
-const optionItems = document.querySelectorAll('.opcoes-barra');
-optionItems.forEach(option => {
-  option.addEventListener('click', () => {
-    searchBar.value = option.textContent;
-    options.classList.add('ativar-barra');
-  })
-});
-
-//Verifica se opção de busca está aberta
+// Verifica se o clique foi fora das opções ou da barra de pesquisa
 document.addEventListener('click', function (event) {
-  var isClickInside = content.contains(event.target);
+  const isClickInsideOptions = options.contains(event.target);
+  const isClickInsideSearchBar = searchBar.contains(event.target);
+  const isClickInsideBoxBuscar = boxBuscar.contains(event.target);
 
-  if (!isClickInside) {
-    boxBuscar.classList.remove('ativar');
-    options.classList.add('ativar-barra');
+  // Se o clique for fora das opções e do campo de pesquisa
+  if (!isClickInsideOptions && !isClickInsideSearchBar && !isClickInsideBoxBuscar) {
+    options.classList.add('ativar-barra'); // Fecha as opções se clicar fora
+    boxBuscar.classList.remove('ativar'); // Também fecha a barra de busca
   }
 });
 
@@ -152,7 +187,8 @@ async function carregarDados() {
       arquivoInfo = data.arquivoPizza[0].arquivoInfo;
       arquivoHorario = data.arquivoPizza[0].arquivoHorario;
       cardapioFile = data.menuItemsPizza[0].menu; // Arquivo de cardápio para Pizza Bliss
-    } else {
+    } 
+    else {
       menuItems = data.menuItemsCake;
       navIcons = data.navIconsCake;
       arquivoInfo = data.arquivoCake[0].arquivoInfo;
@@ -183,7 +219,6 @@ async function carregarDados() {
     console.error('Erro ao carregar dados:', error);
   }
 }
-
 
 //Função para criar um item de menu com imagem, título e localização
 function criarItemMenu(imagemSrc, titulo, localizacao) {
@@ -539,6 +574,3 @@ function slideCarousel(categoriaIndex, direction) {
   carousel.style.transform = `translateX(${currentOffset}px)`;
   carousel.setAttribute('data-offset', currentOffset.toString());
 }
-
-// Chamar a função para carregar o cardápio
-carregarCardapio('caminho/para/seu/json/cardapio.json');
