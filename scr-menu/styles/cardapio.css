@@ -1,7 +1,6 @@
 .color-padrao {
   color: black;
 }
-
 .conteudo-cardapio {
   display: flex;
   flex-direction: column;
